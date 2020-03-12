@@ -4,15 +4,15 @@
 
 const debug = process.env.NODE_ENV !== "production";
 
-module.exports = {
+const withSass = require('@zeit/next-sass');
+module.exports = withSass({
   exportPathMap: function () {
     return {
-      "/": { page: "/" },
-      "/about": { page: "/about" },
+      "/": { page: "/" }
     }
   },
   //assetPrefix: '',
-  assetPrefix: !debug ? '/Next-gh-page-example/' : '',
+  assetPrefix: !debug ? '/joao-azevedo/' : '',
   webpack: (config, { dev }) => {
     // Perform customizations to webpack config
     // console.log('webpack');
@@ -33,4 +33,4 @@ module.exports = {
     // Important: return the modified config
     return config
   }, */
-}
+});
